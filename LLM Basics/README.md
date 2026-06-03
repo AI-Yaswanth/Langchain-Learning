@@ -1,6 +1,8 @@
 # LLM Basics
 
-Learn the fundamentals of Large Language Models (LLMs) through hands-on projects built with LangChain, Streamlit, OpenAI, and vector databases. This module covers prompt engineering, LLM-powered applications, tokenization, embeddings, and semantic search - the building blocks of modern AI applications.
+Learn the fundamentals of Large Language Models (LLMs) through hands-on projects built with LangChain, Streamlit, OpenAI, tokenization tools, and vector databases.
+
+This module covers prompt engineering, LLM apps, token costs, context windows, embeddings, semantic search, and RAG fundamentals.
 
 ---
 
@@ -8,68 +10,52 @@ Learn the fundamentals of Large Language Models (LLMs) through hands-on projects
 
 ### 1. Beginner AI Explainer
 
-A lightweight web app that explains any topic in multiple formats - beginner-friendly, technical, and interview-ready. Demonstrates prompt templates and LLM integration using LangChain.
+Explains any topic in beginner-friendly, technical, and interview-ready formats using LangChain and Streamlit.
 
 ### 2. Token Cost Calculator
 
-A utility application that estimates token usage and input costs for different LLMs. Demonstrates tokenization concepts and pricing awareness when building AI applications.
+Calculates token count and estimates input cost across selected LLMs.
 
-### 3. Semantic Search Engine
+### 3. Context Analyzer
 
-A Retrieval-Augmented Generation (RAG) application that allows users to upload PDFs, create embeddings, perform semantic search, and generate context-aware answers using retrieved document chunks.
+Analyzes input and output token usage against a model’s context window to show remaining available context.
 
-### 4. Prompt Practice Exercises
+### 4. Semantic Search Engine
 
-A collection of practical prompts designed to improve prompt engineering skills across common real-world use cases.
+Uploads PDFs, creates embeddings, stores them in FAISS, and answers questions using retrieved document context.
+
+### 5. Prompt Practice Exercises
+
+Reusable prompts for summarization, action item extraction, Python code generation, and error explanation.
 
 ---
 
 ## Features
 
-### Beginner AI Explainer
-
-* Structured AI-generated explanations
-* Beginner and technical learning modes
-* Interview-focused answers
-* LangChain Prompt Templates
-* OpenAI model integration
-
-### Token Cost Calculator
-
-* Token counting using `tiktoken`
-* Multi-model cost estimation
-* Pricing comparison across models
-* Cost awareness for production AI systems
-
-### Semantic Search Engine
-
-* PDF document upload
-* Automatic document chunking
-* Vector embeddings generation
-* FAISS vector database integration
-* Semantic document retrieval
-* Context-aware question answering (RAG)
-
-### Prompt Practice Exercises
-
-* Document summarization prompts
-* Action item extraction prompts
-* Python code generation prompts
-* Error explanation prompts
+* Beginner-friendly AI explanations
+* Prompt templates with LangChain
+* Token counting with `tiktoken`
+* LLM input cost estimation
+* Context window usage analysis
+* PDF loading and text chunking
+* Embedding generation with OpenAI embeddings
+* FAISS-based semantic search
+* Basic RAG workflow
+* Prompt engineering practice examples
 
 ---
 
 ## Tech Stack
 
-| Layer           | Technology           |
-| --------------- | -------------------- |
-| LLM Framework   | LangChain            |
-| Embeddings      | OpenAI Embeddings    |
-| Vector Store    | FAISS                |
-| Tokenization    | tiktoken             |
-| Language Models | GPT-4o / GPT-4o-mini |
-| Frontend        | Streamlit            |
-| Language        | Python 3.9+          |
+| Layer         | Technology           |
+| ------------- | -------------------- |
+| LLM Framework | LangChain            |
+| Models        | GPT-4o / GPT-4o-mini |
+| Embeddings    | OpenAI Embeddings    |
+| Vector Store  | FAISS                |
+| Tokenization  | tiktoken             |
+| Frontend      | Streamlit            |
+| Language      | Python 3.9+          |
 
 ---
 
@@ -80,6 +66,8 @@ LLM Basics/
 ├── Beginner AI Explainer/
 │   └── app.py
 ├── Token Cost Calculator/
+│   └── app.py
+├── Context Analyzer/
 │   └── app.py
 ├── Semantic Search Engine/
 │   └── app.py
@@ -92,44 +80,23 @@ LLM Basics/
 
 ### `Beginner AI Explainer/app.py`
 
-Demonstrates:
-
-* Prompt engineering with `ChatPromptTemplate`
-* LangChain Expression Language (LCEL)
-* OpenAI chat models
-* Streamlit-based UI development
+Streamlit app that uses `ChatPromptTemplate` and `ChatOpenAI` to generate structured explanations.
 
 ### `Token Cost Calculator/app.py`
 
-Demonstrates:
+Counts tokens with `tiktoken` and estimates input cost based on selected model pricing.
 
-* Tokenization using `tiktoken`
-* Token counting
-* LLM pricing calculations
-* Cost estimation workflows
+### `Context Analyzer/app.py`
+
+Sends a user prompt to an OpenAI model, counts input and output tokens, compares total usage against the model context limit, and displays remaining context.
 
 ### `Semantic Search Engine/app.py`
 
-Demonstrates:
-
-* PDF document ingestion
-* Text chunking with `RecursiveCharacterTextSplitter`
-* Embedding generation using `OpenAIEmbeddings`
-* Vector storage using FAISS
-* Semantic retrieval
-* Retrieval-Augmented Generation (RAG)
-* Context-aware question answering
+Loads a PDF, splits it into chunks, creates embeddings, stores them in FAISS, retrieves relevant chunks, and generates answers using a RAG-style workflow.
 
 ### `LLM Prompt Exercises.md`
 
-Contains reusable prompts for:
-
-| Prompt Type           | Purpose                           |
-| --------------------- | --------------------------------- |
-| Document Summarizer   | Summarize documents accurately    |
-| Action Item Extractor | Extract tasks from meetings       |
-| Python Code Generator | Generate production-ready code    |
-| Error Explainer       | Debug and explain software errors |
+Contains prompt practice examples for summarization, extraction, code generation, and debugging.
 
 ---
 
@@ -138,75 +105,25 @@ Contains reusable prompts for:
 ### Beginner AI Explainer
 
 ```text
-User Query
-     │
-     ▼
-Prompt Template
-     │
-     ▼
-OpenAI Model
-     │
-     ▼
-Structured Explanation
+User Query → Prompt Template → LLM → Structured Explanation
 ```
 
 ### Token Cost Calculator
 
 ```text
-User Text
-     │
-     ▼
-Tokenizer
-     │
-     ▼
-Token Count
-     │
-     ▼
-Pricing Model
-     │
-     ▼
-Estimated Cost
+User Text → Tokenizer → Token Count → Pricing Formula → Estimated Cost
 ```
 
-### Semantic Search Engine (RAG Workflow)
+### Context Analyzer
 
 ```text
-PDF Upload
-     │
-     ▼
-Document Loader
-     │
-     ▼
-Text Splitter
-     │
-     ▼
-Embeddings
-     │
-     ▼
-FAISS Vector Store
-     │
-     ▼
-Retriever
-     │
-     ▼
-Relevant Chunks
-     │
-     ▼
-LLM
-     │
-     ▼
-Answer
+User Prompt → LLM Response → Input Tokens + Output Tokens → Context Usage Report
 ```
 
-Example retrieval flow:
+### Semantic Search Engine
 
-```python
-retrieved_docs = retriever.invoke(user_query)
-
-response = chain.invoke({
-    "context": retrieved_docs,
-    "input": user_query
-})
+```text
+PDF → Loader → Text Splitter → Embeddings → FAISS → Retriever → LLM Answer
 ```
 
 ---
@@ -216,19 +133,12 @@ response = chain.invoke({
 ### Prerequisites
 
 * Python 3.9+
-* OpenAI API Key
+* OpenAI API key
 
 ### Installation
 
 ```bash
-pip install streamlit \
-            langchain-openai \
-            langchain-core \
-            langchain-community \
-            langchain-text-splitters \
-            faiss-cpu \
-            pypdf \
-            tiktoken
+pip install streamlit langchain-openai langchain-core langchain-community langchain-text-splitters faiss-cpu pypdf tiktoken
 ```
 
 ---
@@ -249,6 +159,13 @@ cd "Token Cost Calculator"
 streamlit run app.py
 ```
 
+### Context Analyzer
+
+```bash
+cd "Context Analyzer"
+streamlit run app.py
+```
+
 ### Semantic Search Engine
 
 ```bash
@@ -256,7 +173,7 @@ cd "Semantic Search Engine"
 streamlit run app.py
 ```
 
-Open:
+Open the Streamlit app at:
 
 ```text
 http://localhost:8501
@@ -266,33 +183,19 @@ http://localhost:8501
 
 ## Prompt Practice
 
-The prompt exercises demonstrate key prompt engineering techniques:
+The prompt exercises demonstrate:
 
-### Role Prompting
+* Role-based prompting
+* Structured output formatting
+* Constraint-based prompting
+* Task-specific prompt design
+
+Example:
 
 ```text
 You are a senior Python software engineer.
+Generate clean, maintainable, and production-ready Python code.
 ```
-
-### Structured Output Prompting
-
-* Tables
-* Bullet points
-* Multi-section responses
-
-### Constraint-Based Prompting
-
-```text
-Do not invent information.
-Use only the provided context.
-```
-
-### Task-Specific Prompt Design
-
-* Summarization
-* Information extraction
-* Code generation
-* Debugging assistance
 
 ---
 
@@ -300,38 +203,16 @@ Use only the provided context.
 
 After completing this module, you will understand:
 
-### LLM Fundamentals
-
-* Prompt engineering
-* Prompt templates
-* Chat-based LLM interactions
-
-### LangChain Fundamentals
-
-* LCEL chains
-* Prompt templates
-* Output parsers
-
-### Embeddings & Retrieval
-
-* Vector embeddings
-* Similarity search
-* FAISS vector databases
-* Document chunking
-
-### RAG Fundamentals
-
-* Retrieval-Augmented Generation
-* Context injection
-* Grounded responses
-* Semantic search systems
-
-### Production Considerations
-
-* Token counting
-* Cost estimation
-* Model selection
-* API usage optimization
+* LLM basics and prompt engineering
+* LangChain prompt templates
+* LCEL chaining
+* Token counting and pricing
+* Context window limits
+* Input vs output token usage
+* Embeddings and vector stores
+* Semantic search
+* Retrieval-Augmented Generation basics
+* Building simple AI apps with Streamlit
 
 ---
 
