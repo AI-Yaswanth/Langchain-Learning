@@ -2,7 +2,7 @@
 
 Learn how to build Retrieval-Augmented Generation (RAG) applications using **LangChain**, **OpenAI**, **ChromaDB**, and **Streamlit**.
 
-This module covers document loading, text chunking, embedding generation, vector databases, semantic search, retrieval pipelines, metadata filtering, and enterprise knowledge retrieval.
+This module covers document loading, text chunking, embedding generation, vector databases, semantic search, retrieval strategies, metadata filtering, enterprise knowledge retrieval, and grounded AI responses.
 
 ---
 
@@ -18,23 +18,35 @@ Build an enterprise-ready document chatbot with role-based document access, meta
 
 ### 3. Research Paper Semantic Search Engine
 
-Perform semantic search across research papers using embeddings, similarity scoring, metadata filtering, and document previews.
+Perform semantic search across research papers using embeddings, similarity scoring, metadata filtering, and preview snippets.
+
+### 4. Retrieval Strategy Comparator
+
+Compare Similarity Search, Max Marginal Relevance (MMR), and Similarity Score Threshold retrieval strategies to understand how different retrieval methods affect search quality.
+
+### 5. I Don't Know RAG Bot
+
+Build a hallucination-resistant RAG chatbot that answers only when sufficient document evidence exists and explicitly responds with **"I don't know"** when relevant information cannot be retrieved.
 
 ---
 
 ## Features
 
 * Retrieval-Augmented Generation (RAG)
+* Multi-Document Question Answering
 * PDF, CSV, and Text Document Loading
 * Recursive Text Chunking
 * OpenAI Embedding Generation
 * Chroma Vector Database
 * Semantic Search
-* Similarity Search & Ranking
+* Similarity Search
+* Max Marginal Relevance (MMR)
+* Similarity Score Threshold Retrieval
 * Metadata-Based Retrieval
 * Role-Based Document Access
 * Source-Aware Responses
-* Multi-Document Question Answering
+* Hallucination Mitigation
+* Grounded AI Responses
 * Streamlit-Based User Interfaces
 
 ---
@@ -63,9 +75,13 @@ RAG/
 │   └── app.py
 ├── Enterprise Knowledge Base Chatbot/
 │   └── app.py
-└── Research Paper Semantic Search Engine/
-    ├── app.py
-    └── .env.example
+├── Research Paper Semantic Search Engine/
+│   ├── app.py
+│   └── .env.example
+├── Retrieval Strategy Comparator/
+│   └── app.py
+└── I Don't Know RAG Bot/
+    └── app.py
 ```
 
 ---
@@ -78,11 +94,19 @@ Implements a complete RAG pipeline that loads multiple PDFs, generates embedding
 
 ### `Enterprise Knowledge Base Chatbot/app.py`
 
-Builds an enterprise document assistant with metadata tagging, role-based document access, filtered retrieval, and source-aware responses.
+Builds an enterprise knowledge assistant with metadata tagging, role-based document access, filtered retrieval, and source-aware responses.
 
 ### `Research Paper Semantic Search Engine/app.py`
 
-Implements semantic search over research papers with metadata filtering, similarity scoring, and preview snippets for retrieved documents.
+Implements semantic search across research papers with metadata filtering, similarity scoring, and preview snippets for retrieved documents.
+
+### `Retrieval Strategy Comparator/app.py`
+
+Demonstrates and compares Similarity Search, Max Marginal Relevance (MMR), and Similarity Score Threshold retrieval strategies side-by-side.
+
+### `I Don't Know RAG Bot/app.py`
+
+Builds a grounded RAG chatbot that answers questions only when sufficient supporting context is retrieved, helping reduce hallucinations.
 
 ### `.env.example`
 
@@ -148,6 +172,38 @@ Metadata Filtering
 Ranked Results
 ```
 
+### Retrieval Strategy Comparator
+
+```text
+Documents
+      ↓
+Embeddings
+      ↓
+ChromaDB
+      ↓
+Similarity Search
+MMR Search
+Threshold Search
+      ↓
+Result Comparison
+```
+
+### I Don't Know RAG Bot
+
+```text
+User Question
+      ↓
+Retriever
+      ↓
+Relevant Context
+      ↓
+Grounded Prompt
+      ↓
+LLM
+      ↓
+Answer or "I Don't Know"
+```
+
 ---
 
 ## Getting Started
@@ -160,8 +216,7 @@ Ranked Results
 ### Installation
 
 ```bash
-pip install streamlit langchain langchain-core langchain-classic \
-langchain-community langchain-openai chromadb pypdf python-dotenv
+pip install streamlit langchain langchain-core langchain-classic langchain-community langchain-openai chromadb pypdf python-dotenv
 ```
 
 ---
@@ -189,6 +244,20 @@ cd "Research Paper Semantic Search Engine"
 streamlit run app.py
 ```
 
+### Retrieval Strategy Comparator
+
+```bash
+cd "Retrieval Strategy Comparator"
+streamlit run app.py
+```
+
+### I Don't Know RAG Bot
+
+```bash
+cd "I Don't Know RAG Bot"
+streamlit run app.py
+```
+
 Open the application at:
 
 ```text
@@ -207,11 +276,14 @@ After completing this module, you will understand:
 * Embedding Generation with OpenAI
 * Vector Databases using ChromaDB
 * Semantic Search
-* Similarity Search & Ranking
+* Similarity Search
+* Max Marginal Relevance (MMR)
+* Similarity Score Threshold Retrieval
 * Metadata-Based Retrieval
 * Role-Based Document Access
 * Retrieval Chains
-* Context-Grounded Question Answering
+* Grounded Question Answering
+* Hallucination Mitigation
 * Building Production-Ready RAG Applications
 
 ---
